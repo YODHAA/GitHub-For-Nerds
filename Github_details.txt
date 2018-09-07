@@ -1,0 +1,375 @@
+
+Github:
+=========
+
+ Git: hosting on single PC codes
+ Github: hosting on server the PC Codes.
+
+ Respository: Project history managed in DB by Software: "Git open software" .
+
+ Things managed by Git: 
+  1. Object Store
+  2. Index
+
+  1. Its has 4 category: 
+           1.1 Blob : file stored in it.
+           1.2 Tree : sub folders maintened with files inside the folders. ( maintains metadata + files path).
+           1.3 Commit: Author data commited details.
+           1.4 Tag : give tag to commited data (extra info)
+
+  2. Its temporaary + dynamic file 
+     It creates snapsot of changed data until you "stagged" the changed files in the repository.
+     we execute the Git Command to stage changes in the index .
+
+   The Git object stored and implemented as contentable-addressable storage system .
+   SHA1: its a 160 bit value that are usually represented as a 40 digit hexadecimal number.
+
+
+  File Managment and Index:
+  --------------------------
+      remote repository --------------index (staging happen here) ------------------local repositroy
+
+      >git status    ( index captured files shown , those changes can be commit and pushed to remote server ).
+
+    File classification while indexing : 
+    -------------------------------------
+            1. tracked : staged file (green color)  
+            2.Ignored   (.git ignore)
+            3. untracked : not in above two category .
+
+
+   Git commands:
+   --------------------
+
+     add,  bisect , branch , checkout , clone , commit , diff , fetch , grep , init , log ,merge , mv ,pull ,push , rebase , reset 
+      rm, show , status , tag .
+
+    1. git --version 
+
+    2. git commit -m  "commit message"
+
+    3. git init 
+
+    4. git add index.html 
+
+    5. git status 
+
+    6. git config user.name "saurabh"
+
+    7. git config user.email "abc@gmail.com"
+
+   8. git log 
+
+   9. git branch -d branchname 
+
+   merges in git:
+   -----------------
+
+    git checkout branch 
+
+    git merge other_branch
+
+    git commit -a -m "commit message"
+
+
+
+Configure Local Reposirtory with remote repositroy :
+-------------------------------------------------------
+       
+       1. git remote add origin https://github.com/gitgithub/GitHub-Learning.git
+
+          successfully added remote repo to local repo.
+
+       2. git remote -v 
+           
+           $ git remote -v
+				origin  https://github.com/gitgithub/GitHub-Learning.git (fetch)
+				origin  https://github.com/gitgithub/GitHub-Learning.git (push)
+          
+
+           $ git remote add myorigin https://github.com/gitgithub/GitHub-Learning.git
+
+					SAURABH@SPY-WAR MINGW64 /d/Projects-Simplified/Github_Details/Test_Git (master)
+					$ git remote -v
+					myorigin        https://github.com/gitgithub/GitHub-Learning.git (fetch)
+					myorigin        https://github.com/gitgithub/GitHub-Learning.git (push)
+					origin  https://github.com/gitgithub/GitHub-Learning.git (fetch)
+					origin  https://github.com/gitgithub/GitHub-Learning.git (push)
+   
+
+        3. Add a text file :
+         --------------------
+
+                git add --all
+                git add .         (for staging)
+
+                git status    ( stage file : track file in git software)
+
+
+                git rm --cached Log.txt
+
+               user.name= YODHAA
+               user.email = saurabhsingh4589@gmail.com
+
+                 
+
+
+               git config --global user.name "YODHAA"
+               git config --global user.email "saurabhsingh4589@gmail.com"
+
+                git commit -m "Initial Commit"
+
+               git log 
+
+               git add  .gitignore 
+
+
+               steps to upload files:
+               ---------------------------
+               
+               1. git init
+               2. git add .
+               3. git commit -m "First commit"
+               4. git remote add gitreposs "remote repository URL" 
+               5. git remote -v
+               6. git push -f gitreposs  master
+
+	             1.  git config --global user.name "YODHAA"
+	              2.  git config --global user.email "saurabhsingh_15105@aitpune.edu.in"
+	               3.  git add --all
+	            4. $ git push -f gitreposs  master
+
+
+           make a directory
+           make a txt doc "a.txt" 
+           echo "# test " >> README.md 
+           see in folder
+           git init 
+           git status
+           git add .
+           git commit -m "First commit"
+           git remote add gitreposs "remote repository URL" 
+           git remote -v
+           git push -f gitreposs  master
+
+        more cmd:
+
+            git mergetool
+
+
+
+Git is a free and open source distributed version control system (different b/w codes we write)
+designed to handle everything from small to very large projects with speed and efficiency.
+
+
+
+
+Git Basics:
+-----------
+
+Eveytime we have to initalised inside the specific folder git cmd to commit on github. 
+
+1. Init:  >git init   (notice .git inside the specific folder hidden one ) , ls -a to see inside it.
+
+    1.1  > git status : check the status  tell some about the master branch, some meaasge about untracked
+               files.
+    1.2  > we can tell git to watch the secret files and ignore while in public folder if they exists.
+             but git will not track them.
+
+    1.3  > to track these files (two step flow) , we use git add xyz.js  to tel git to keep track if 
+             git doesnot know about it.
+
+    1.4 >  git commit -m "add app file " : add  a message to your changed file 
+
+    thus init creates a new repository in a given directory .
+      now below two are bread and butter of git , now have a look into it .
+
+2. Add : > git log : a new terminal a scroll bar  , type q to get out off.
+      
+         > commit has a long hash key to remmeber each commit .
+
+         > git checkout :  to change branches  (master : home base).
+
+         > git checkout id_hask_key : its to see the commits which are changed but not added.
+
+        
+
+
+ Git Advance :
+ -----------------
+
+    Traditional Version Control tools :
+              1. open source 
+                     CVN
+                     SVN                  client-server model
+
+              2. Properiatery 
+
+                      IBM Rational ClearCase
+                      Perforce
+
+    Network Failure +  file corruption 
+
+    sol : Distributed Version Control 
+
+        	its doesnot rely on central server , its allow one to clone the repository on their own harddrive with entire 
+        	history of project .
+                                               commit/update 
+        	Repo --------------- 1. repos   -------------         working copy 
+        	         push/pull    2. repos 
+        	                       3. repos
+
+              is the architecture of DVC .
+
+
+Generate SSH key in Github:
+-----------------------------
+
+    cd ~/.ssh 
+
+    1. SAURABH@SPY-WAR MINGW64 /c :
+
+			$ ssh-keygen -t rsa -C "saurabhsingh_15105@aitpune.edu.in"
+
+    2. Your identification has been saved in /c/Users/SAURABH/.ssh/id_rsa.
+       Your public key has been saved in /c/Users/SAURABH/.ssh/id_rsa.pub.
+
+    3. SAURABH@SPY-WAR MINGW64 /c
+          
+          $ cd ~/.ssh
+          $ ls
+            id_rsa  id_rsa.pub  known_hosts
+
+     
+    4. clip < ~/.ssh/id_rsa.pub 
+   
+    5. $ clip < id_rsa.pub
+
+    6. git remote remove myorigin 
+
+    7. SAURABH@SPY-WAR MINGW64 /d/Projects-Simplified/Github_Details/Test_Git (master)
+			$ git remote remove githubRepos
+
+	   SAURABH@SPY-WAR MINGW64 /d/Projects-Simplified/Github_Details/Test_Git (master)
+			$ git remote -v
+			gitreposs       https://github.com/YODHAA/Second_Phase.git (fetch)
+			gitreposs       https://github.com/YODHAA/Second_Phase.git (push)
+
+     8. SAURABH@SPY-WAR MINGW64 /d/Projects-Simplified/Github_Details/Test_Git (master)
+				$ git remote add myorigin git@github.com:YODHAA/Second_Phase.git
+
+	    SAURABH@SPY-WAR MINGW64 /d/Projects-Simplified/Github_Details/Test_Git (master)
+				$ git remote -v
+				myorigin        git@github.com:YODHAA/Second_Phase.git (fetch)
+				myorigin        git@github.com:YODHAA/Second_Phase.git (push)
+
+    9. git add .
+
+   10. $  git status
+					On branch master
+					Changes to be committed:
+					  (use "git reset HEAD <file>..." to unstage)
+
+					        modified:   Saurabh/Log.txt
+
+
+     11. $  git commit -m "Log updated "
+
+     12. $ git push myorigin master
+
+			Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
+			Counting objects: 4, done.
+			Delta compression using up to 4 threads.
+			Compressing objects: 100% (2/2), done.
+			Writing objects: 100% (4/4), 372 bytes | 372.00 KiB/s, done.
+			Total 4 (delta 0), reused 0 (delta 0)
+			To github.com:YODHAA/Second_Phase.git
+			   eca127f..4c225e5  master -> master
+ 
+
+
+    Branch in Github :
+   --------------------
+
+      a branch is the fundamental means of launching a seperate line of development with a software project .
+
+      commit:  
+               git commit  -m "message"
+               git commit --all -m "message"
+
+     git help to manages multiple branches .
+
+     $ git branch
+         
+         * master
+
+     $ git branch mybranch
+
+    switch the branches 
+
+     $ git checkout mybranch
+          
+          Switched to branch 'mybranch'
+    $ git branch
+				  master
+				* mybranch
+
+     $ git checkout -b newbranch
+             Switched to a new branch 'newbranch'
+             SAURABH@SPY-WAR MINGW64 /d/Projects-Simplified/Github_Details/Test_Git (newbranch)
+
+     $ git branch
+				  master
+				  mybranch
+				* newbranch
+      
+     $ git checkout master
+           Switched to branch 'master'
+           SAURABH@SPY-WAR MINGW64 /d/Projects-Simplified/Github_Details/Test_Git (master)
+    
+     $ git branch
+				* master
+				  mybranch
+				  newbranch
+
+     add a new brach merge in github syntax/ steps :
+     ----------------------------------------------------
+
+      1. $ echo > newfile1.txt
+
+      2. $ git status
+				On branch newbranch
+				Untracked files:
+				  (use "git add <file>..." to include in what will be committed)
+
+				        newfile1.txt
+
+				nothing added to commit but untracked files present (use "git add" to track)
+ 
+      3. $ git add newfile1.txt
+
+      4. $ git commit -m "new file1 added "
+      
+      5. $ git push myorigin newbranch
+
+      6. $ git checkout mybranch
+
+      7. $ git status
+				On branch mybranch
+				nothing to commit, working tree clean
+
+	  8. $ git merge newbranch
+
+      9. $ git push myorigin mybranch
+
+     now the files of mybranch get merged to newbranch and pushed the newbranch in github repo.
+
+     
+
+
+
+
+
+
+
+
